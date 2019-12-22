@@ -9,7 +9,7 @@ grammar KJSON;
 
 // Parser Rules
 json returns [KJSON result]
-    :   jsonData {$result = KJSON($jsonData.result);}
+    :   jsonData {$result = new KJSON($jsonData.result);}
         EOF
     ;
 
@@ -17,14 +17,14 @@ jsonArray returns [KJSONArray result]
     :   {ArrayList<KJSONData> data = new ArrayList();}
         SQBR1
         (
-            data1 = jsonData {data.append($data1.result);}
+            data1 = jsonData {data.add($data1.result);}
             (
                 COMMA
-                data2 = jsonData {data.append($data2.result);}
+                data2 = jsonData {data.add($data2.result);}
             )*
         )?
         SQBR2
-        {$result = data;}
+        {$result = new KJSONArray(data);}
     ;
 
 jsonChars
@@ -33,15 +33,15 @@ jsonChars
 
 jsonData returns [KJSONData result]
     :   (
-            jsonArray {result = $jsonArray.result;}
+            jsonArray {$result = $jsonArray.result;}
         |
-            jsonDouble {result = $jsonDouble.result;}
+            jsonDouble {$result = $jsonDouble.result;}
         |
-            jsonInteger {result = $jsonInteger.result;}
+            jsonInteger {$result = $jsonInteger.result;}
         |
-            jsonMap {result = $jsonMap.result;}
+            jsonMap {$result = $jsonMap.result;}
         |
-            jsonString {result = $jsonString.result;}
+            jsonString {$result = $jsonString.result;}
         )
     ;
 
@@ -65,7 +65,7 @@ jsonDouble returns [KJSONDouble result]
         {
             double value = Double.parseDouble(buffer.toString());
             if(minus) value = -value;
-            $result = KJSONDouble(value);
+            $result = new KJSONDouble(value);
         }
     ;
 
@@ -78,7 +78,7 @@ jsonInteger returns [KJSONInteger result]
         {
             int value = Integer.parseInt($jsonDigits.text);
             if(minus) value = -value;
-            $result = KJSONInteger(value);
+            $result = new KJSONInteger(value);
         }
     ;
 
@@ -86,10 +86,10 @@ jsonMap returns [KJSONMap result]
     :   {ArrayList<KJSONMapPair> data = new ArrayList();}
         CUBR1
         (
-            pair1 = jsonMapPair {data.append($pair1.result);}
+            pair1 = jsonMapPair {data.add($pair1.result);}
             (
                 COMMA
-                pair2 = jsonMapPair {data.append($pair2.result);}
+                pair2 = jsonMapPair {data.add($pair2.result);}
             )*
         )?
         CUBR2
