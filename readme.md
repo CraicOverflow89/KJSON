@@ -19,17 +19,21 @@ KJSON.parseString("{name:\"James\"}").toMap()
 
 After parsing JSON data, you can perform checks on data type of the `KJSON` object with these methods;
 
- - **isArray**
- - **isDouble**
- - **isInt**
- - **isMap**
- - **isString**
+| Method           | Returns |
+| ---------------- | ------- |
+| **isArray**      | boolean |
+| **isDouble**     | boolean |
+| **isInt**        | boolean |
+| **isMap**        | boolean |
+| **isString**     | boolean |
 
 You can cast the data of the `KJSON` object with the following methods;
 
- - **toArrayList** returns `ArrayList<KJSON>`
- - **toDouble** returns `double`
- - **toInt** returns `int`
- - **toList** returns `List<KJSON>`
- - **toMap** returns `HashMap<String, KJSON>`
- - **toString** returns `String`
+| Method           | Returns                  |
+| ---------------- | ------------------------ |
+| **toArrayList**  | `ArrayList<KJSON>`       |
+| **toDouble**     | `double`                 |
+| **toInt**        | `int`                    |
+| **toList**       | `List<KJSON>`            |
+| **toMap**        | `HashMap<String, KJSON>` |
+| **toString**     | `String`                 |
