@@ -97,7 +97,7 @@ jsonMap returns [KJSONMap result]
     ;
 
 jsonMapPair returns [KJSONMapPair result]
-    :   jsonChars COLON jsonData
+    :   QUOTE jsonChars QUOTE COLON jsonData
         {$result = new KJSONMapPair($jsonChars.text, $jsonData.result);}
     ;
 
