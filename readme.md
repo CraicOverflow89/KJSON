@@ -29,11 +29,12 @@ After parsing JSON data, you can perform checks on data type of the `KJSON` obje
 
 You can cast the data of the `KJSON` object with the following methods;
 
-| Method      | Returns                |
-| ----------- | ---------------------- |
-| toArrayList | ArrayList<KJSON>       |
-| toDouble    | double                 |
-| toInt       | int                    |
-| toList      | List<KJSON>            |
-| toMap       | HashMap<String, KJSON> |
-| toString    | String                 |
+| Method      | Returns                                                             |
+| ----------- | ------------------------------------------------------------------- |
+| toArrayList | ArrayList<T> when types are primitive; ArrayList<KJSON>             |
+| toDouble    | double                                                              |
+| toHashMap   | HashMap<String, T> when types are primitive; HashMap<String, KJSON> |
+| toInt       | int                                                                 |
+| toList      | List<T> when types are primitive; List<KJSON>                       |
+| toMap       | Map<String, T> when types are primitive; Map<String, KJSON>         |
+| toString    | String                                                              |
