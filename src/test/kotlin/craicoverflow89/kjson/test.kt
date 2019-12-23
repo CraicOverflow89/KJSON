@@ -48,7 +48,6 @@ class KJSONTest {
         val actual = this.toHashMap()
         Assert.assertEquals(expected.keys.size, actual.keys.size)
         Assert.assertEquals(expected["name"], actual["name"])
-        // NOTE: this highlights the issue about casting to JVM types
     }
 
     @Test
@@ -58,7 +57,6 @@ class KJSONTest {
         val actual = this.toMap()
         Assert.assertEquals(expected.keys.size, actual.keys.size)
         Assert.assertEquals(expected["name"], actual["name"])
-        // NOTE: this highlights the issue about casting to JVM types
     }
 
     @Test
