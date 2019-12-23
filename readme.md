@@ -31,10 +31,10 @@ You can cast the data of the `KJSON` object with the following methods;
 
 | Method      | Returns                                                             |
 | ----------- | ------------------------------------------------------------------- |
-| toArrayList | ArrayList<T> when types are primitive; ArrayList<KJSON>             |
+| toArrayList | ArrayList&lt;T&gt; when types are primitive; ArrayList<KJSON>       |
 | toDouble    | double                                                              |
 | toHashMap   | HashMap<String, T> when types are primitive; HashMap<String, KJSON> |
 | toInt       | int                                                                 |
-| toList      | List<T> when types are primitive; List<KJSON>                       |
+| toList      | List&lt;T&gt; when types are primitive; List<KJSON>                 |
 | toMap       | Map<String, T> when types are primitive; Map<String, KJSON>         |
 | toString    | String                                                              |
