@@ -8,7 +8,7 @@ class KJSONTest {
     @Test
     fun parseDouble() = with(KJSON.parseString("0.25")) {
         Assert.assertEquals(true, this.isDouble())
-        Assert.assertEquals(0.25, this.toDouble())
+        Assert.assertEquals(0.25, this.toDouble(), 0.001)
     }
 
     @Test
