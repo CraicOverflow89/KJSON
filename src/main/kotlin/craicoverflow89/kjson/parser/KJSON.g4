@@ -19,7 +19,7 @@ jsonArray returns [KJSONArray result]
         (
             data1 = jsonData {data.add($data1.result);}
             (
-                COMMA
+                COMMA SPACE?
                 data2 = jsonData {data.add($data2.result);}
             )*
         )?

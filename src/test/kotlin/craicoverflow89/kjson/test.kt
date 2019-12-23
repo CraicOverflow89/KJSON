@@ -6,6 +6,13 @@ import org.junit.Test
 class KJSONTest {
 
     @Test
+    fun parseArrayToArrayList() = with(KJSON.parseString("[7, 8, 9]")) {
+        Assert.assertEquals(true, this.isArray())
+        Assert.assertEquals(arrayListOf(7, 8, 9), this.toArrayList())
+        // NOTE: this highlights the issue about casting to JVM types
+    }
+
+    @Test
     fun parseDoubleSigned() = with(KJSON.parseString("-0.25")) {
         Assert.assertEquals(true, this.isDouble())
         Assert.assertEquals(-0.25, this.toDouble(), 0.001)
