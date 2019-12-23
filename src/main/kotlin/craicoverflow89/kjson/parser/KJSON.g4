@@ -61,7 +61,7 @@ jsonDouble returns [KJSONDouble result]
         (
             PERIOD {buffer.append(".");}
             digit2 = jsonDigits {buffer.append($digit2.text);}
-        )?
+        )
         {
             double value = Double.parseDouble(buffer.toString());
             if(minus) value = -value;

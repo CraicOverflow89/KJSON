@@ -12,6 +12,12 @@ class KJSONTest {
     }
 
     @Test
+    fun parseInteger() = with(KJSON.parseString("7")) {
+        Assert.assertEquals(true, this.isInt())
+        Assert.assertEquals(7, this.toInt())
+    }
+
+    @Test
     fun parseString() = with(KJSON.parseString("\"hello world\"")) {
         Assert.assertEquals(true, this.isString())
         Assert.assertEquals("hello world", this.toString())
