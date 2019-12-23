@@ -28,7 +28,7 @@ jsonArray returns [KJSONArray result]
     ;
 
 jsonChars
-    :   CHAR*
+    :   CHAR+
     ;
 
 jsonData returns [KJSONData result]
@@ -102,8 +102,15 @@ jsonMapPair returns [KJSONMapPair result]
     ;
 
 jsonString returns [KJSONString result]
-    :   QUOTE jsonChars QUOTE
-        {$result = new KJSONString($jsonChars.text);}
+    :   {StringBuffer buffer = new StringBuffer();}
+        QUOTE
+        (
+            jsonChars {buffer.append($jsonChars.text);}
+        |
+            SPACE {buffer.append(" ");}
+        )+
+        QUOTE
+        {$result = new KJSONString(buffer.toString());}
     ;
 
 // Lexer Rules
@@ -114,6 +121,7 @@ CUBR2: '}';
 MINUS: '-';
 PERIOD: '.';
 QUOTE: '"';
+SPACE: ' ';
 SQBR1: '[';
 SQBR2: ']';
 WHITESPACE: [ \t\r\n]+ -> skip;
