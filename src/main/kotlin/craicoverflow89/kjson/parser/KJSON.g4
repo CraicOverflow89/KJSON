@@ -118,6 +118,7 @@ COLON: ':';
 COMMA: ',';
 CUBR1: '{';
 CUBR2: '}';
+DIGIT: [0-9];
 MINUS: '-';
 PERIOD: '.';
 QUOTE: '"';
