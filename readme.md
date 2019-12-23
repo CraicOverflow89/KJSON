@@ -12,7 +12,7 @@ KJSON.parseFile("/path/to/file.json")
 // returns a KJSON object (can pass File object instead)
 
 KJSON.parseString("{name:\"James\"}").toMap()
-// returns a HashMap object
+// returns a Map object
 ```
 
 ### Methods
