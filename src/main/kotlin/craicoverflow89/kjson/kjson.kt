@@ -36,6 +36,8 @@ class KJSON(private val data: KJSONData) {
 
     fun toDouble() = (data as KJSONDouble).toDouble()
 
+    fun toHashMap() = (data as KJSONMap).toHashMap()
+
     fun toInt() = (data as KJSONInteger).toInt()
 
     fun toList() = (data as KJSONArray).toList()
