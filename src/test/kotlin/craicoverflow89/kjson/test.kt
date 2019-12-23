@@ -6,13 +6,25 @@ import org.junit.Test
 class KJSONTest {
 
     @Test
-    fun parseDouble() = with(KJSON.parseString("0.25")) {
+    fun parseDoubleSigned() = with(KJSON.parseString("-0.25")) {
+        Assert.assertEquals(true, this.isDouble())
+        Assert.assertEquals(-0.25, this.toDouble(), 0.001)
+    }
+
+    @Test
+    fun parseDoubleUnsigned() = with(KJSON.parseString("0.25")) {
         Assert.assertEquals(true, this.isDouble())
         Assert.assertEquals(0.25, this.toDouble(), 0.001)
     }
 
     @Test
-    fun parseInteger() = with(KJSON.parseString("7")) {
+    fun parseIntegerSigned() = with(KJSON.parseString("-7")) {
+        Assert.assertEquals(true, this.isInt())
+        Assert.assertEquals(-7, this.toInt())
+    }
+
+    @Test
+    fun parseIntegerUnsigned() = with(KJSON.parseString("7")) {
         Assert.assertEquals(true, this.isInt())
         Assert.assertEquals(7, this.toInt())
     }
