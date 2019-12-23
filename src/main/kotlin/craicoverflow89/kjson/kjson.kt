@@ -32,7 +32,16 @@ class KJSON(private val data: KJSONData) {
 
     fun isString() = data is KJSONString
 
-    fun toArrayList() = (data as KJSONArray).toArrayList()
+    fun toArrayList(): ArrayList<Any> = ArrayList<Any>().apply {
+        (data as KJSONArray).toArrayList().forEach {
+            add(when(it) {
+                is KJSONDouble -> it.toDouble()
+                is KJSONInteger -> it.toInt()
+                is KJSONString -> it.toString()
+                else -> it
+            })
+        }
+    }
 
     fun toDouble() = (data as KJSONDouble).toDouble()
 
@@ -40,7 +49,16 @@ class KJSON(private val data: KJSONData) {
 
     fun toInt() = (data as KJSONInteger).toInt()
 
-    fun toList() = (data as KJSONArray).toList()
+    fun toList(): List<Any> = ArrayList<Any>().apply {
+        (data as KJSONArray).toList().forEach {
+            add(when(it) {
+                is KJSONDouble -> it.toDouble()
+                is KJSONInteger -> it.toInt()
+                is KJSONString -> it.toString()
+                else -> it
+            })
+        }
+    }.toList()
 
     fun toMap() = (data as KJSONMap).toMap()
 

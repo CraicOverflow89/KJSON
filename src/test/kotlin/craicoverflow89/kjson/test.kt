@@ -9,14 +9,12 @@ class KJSONTest {
     fun parseArrayToArrayList() = with(KJSON.parseString("[7, 8, 9]")) {
         Assert.assertEquals(true, this.isArray())
         Assert.assertEquals(arrayListOf(7, 8, 9), this.toArrayList())
-        // NOTE: this highlights the issue about casting to JVM types
     }
 
     @Test
     fun parseArrayToList() = with(KJSON.parseString("[7, 8, 9]")) {
         Assert.assertEquals(true, this.isArray())
         Assert.assertEquals(listOf(7, 8, 9), this.toList())
-        // NOTE: this highlights the issue about casting to JVM types
     }
 
     @Test
