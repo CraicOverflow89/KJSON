@@ -42,6 +42,18 @@ class KJSON(private val data: KJSONData) {
         }
     }
 
+    fun toArrayListDouble(): ArrayList<Double> = ArrayList<Double>().apply {
+        (data as KJSONArray).toArrayListDouble()
+    }
+
+    fun toArrayListInt(): ArrayList<Integer> = ArrayList<Integer>().apply {
+        (data as KJSONArray).toArrayListInt()
+    }
+
+    fun toArrayListString(): ArrayList<String> = ArrayList<String>().apply {
+        (data as KJSONArray).toArrayListString()
+    }
+
     fun toDouble() = (data as KJSONDouble).toDouble()
 
     fun toHashMap(): HashMap<String, Any> = HashMap<String, Any>().apply {
@@ -88,6 +100,12 @@ interface KJSONData
 class KJSONArray(private val data: ArrayList<KJSONData>): KJSONData {
 
     fun toArrayList() = data
+
+    fun toArrayListDouble() = data.filterIsInstance<KJSONDouble>()
+
+    fun toArrayListInt() = data.filterIsInstance<KJSONInteger>()
+
+    fun toArrayListString() = data.filterIsInstance<KJSONString>()
 
     fun toList() = data.toList()
 
