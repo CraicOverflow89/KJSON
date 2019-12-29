@@ -8,11 +8,11 @@ Lightweight JSON parsing library for Kotlin.
 You can parse JSON files and strings easily with the `parseFile` and `parseString` methods;
 
 ```
-KJSON.parseFile("/path/to/file.json")
-// returns a KJSON object (can pass File object instead)
+KJSON.parseFile(File("/path/to/file.json"))
+// returns a KJSON object represeting content in file.json
 
 KJSON.parseString("{name:\"James\"}").toMap()
-// returns a Map object
+// returns a Map object, cast from a KJSON object
 ```
 
 ### Methods

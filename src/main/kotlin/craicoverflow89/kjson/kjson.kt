@@ -17,7 +17,6 @@ class KJSON(private val data: KJSONData) {
         }
 
         fun parseFile(file: File) = parse(file.readText())
-        fun parseFile(file: String) = parse(File(file).readText())
         fun parseString(value: String) = parse(value)
 
     }
