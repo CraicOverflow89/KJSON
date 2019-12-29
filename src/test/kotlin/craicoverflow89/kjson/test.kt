@@ -2,6 +2,7 @@ package craicoverflow89.kjson
 
 import org.junit.Assert
 import org.junit.Test
+import java.io.File
 
 class KJSONTest {
 
@@ -27,6 +28,14 @@ class KJSONTest {
     fun parseDoubleUnsigned() = with(KJSON.parseString("0.25")) {
         Assert.assertEquals(true, this.isDouble())
         Assert.assertEquals(0.25, this.toDouble(), 0.001)
+    }
+
+    @Test
+    fun parseFile() = with(KJSON.parseFile(File(object {}.javaClass.getResource("/test.json").toURI()))) {
+        Assert.assertEquals(true, this.isMap())
+        with(this.toMap()) {
+            Assert.assertEquals(4, this.keys.size)
+        }
     }
 
     @Test
