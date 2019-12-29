@@ -42,21 +42,27 @@ class KJSON(private val data: KJSONData) {
         }
     }
 
-    fun toArrayListDouble(): ArrayList<Double> = ArrayList<Double>().apply {
+    fun toArrayListDouble() = ArrayList<Double>().apply {
         (data as KJSONArray).toArrayListDouble().map {
             it.toDouble()
+        }.forEach {
+            add(it)
         }
     }
 
-    fun toArrayListInt(): ArrayList<Integer> = ArrayList<Integer>().apply {
+    fun toArrayListInt() = ArrayList<Int>().apply {
         (data as KJSONArray).toArrayListInt().map {
             it.toInt()
+        }.forEach {
+            add(it)
         }
     }
 
-    fun toArrayListString(): ArrayList<String> = ArrayList<String>().apply {
+    fun toArrayListString() = ArrayList<String>().apply {
         (data as KJSONArray).toArrayListString().map {
             it.toString()
+        }.forEach {
+            add(it)
         }
     }
 

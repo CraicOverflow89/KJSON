@@ -8,8 +8,20 @@ class KJSONTest {
 
     @Test
     fun castArrayListDouble() = with(KJSON.parseString("[7.00, 8.00, 9.00]").toArrayListDouble()) {
-        //Assert.assertEquals(true, this is ArrayList<Double>)
+        Assert.assertEquals(true, this is ArrayList<Double>)
         Assert.assertEquals(arrayListOf(7.00, 8.00, 9.00), this)
+    }
+
+    @Test
+    fun castArrayListInt() = with(KJSON.parseString("[7, 8, 9]").toArrayListInt()) {
+        Assert.assertEquals(true, this is ArrayList<Int>)
+        Assert.assertEquals(arrayListOf(7, 8, 9), this)
+    }
+
+    @Test
+    fun castArrayListString() = with(KJSON.parseString("[\"James\"]").toArrayListString()) {
+        Assert.assertEquals(true, this is ArrayList<String>)
+        Assert.assertEquals(arrayListOf("James"), this)
     }
 
     @Test
