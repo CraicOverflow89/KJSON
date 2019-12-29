@@ -7,6 +7,12 @@ import java.io.File
 class KJSONTest {
 
     @Test
+    fun castArrayListDouble() = with(KJSON.parseString("[7.00, 8.00, 9.00]").toArrayListDouble()) {
+        //Assert.assertEquals(true, this is ArrayList<Double>)
+        Assert.assertEquals(arrayListOf(7.00, 8.00, 9.00), this)
+    }
+
+    @Test
     fun parseArrayToArrayList() = with(KJSON.parseString("[7, 8, 9]")) {
         Assert.assertEquals(true, this.isArray())
         Assert.assertEquals(arrayListOf(7, 8, 9), this.toArrayList())

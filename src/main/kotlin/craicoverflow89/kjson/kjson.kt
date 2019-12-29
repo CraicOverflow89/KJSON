@@ -43,15 +43,21 @@ class KJSON(private val data: KJSONData) {
     }
 
     fun toArrayListDouble(): ArrayList<Double> = ArrayList<Double>().apply {
-        (data as KJSONArray).toArrayListDouble()
+        (data as KJSONArray).toArrayListDouble().map {
+            it.toDouble()
+        }
     }
 
     fun toArrayListInt(): ArrayList<Integer> = ArrayList<Integer>().apply {
-        (data as KJSONArray).toArrayListInt()
+        (data as KJSONArray).toArrayListInt().map {
+            it.toInt()
+        }
     }
 
     fun toArrayListString(): ArrayList<String> = ArrayList<String>().apply {
-        (data as KJSONArray).toArrayListString()
+        (data as KJSONArray).toArrayListString().map {
+            it.toString()
+        }
     }
 
     fun toDouble() = (data as KJSONDouble).toDouble()
